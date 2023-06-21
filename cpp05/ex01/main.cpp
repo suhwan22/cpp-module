@@ -10,7 +10,7 @@ int main()
 		Form	testForm1("test1", 0, 0);
 		std::cout << testForm1 << std::endl;
 	}
-	catch (std::runtime_error& e)
+	catch (std::exception& e)
 	{
 		std::cout << e.what() << std::endl;
 	}
@@ -20,7 +20,7 @@ int main()
 		Form	testForm2("test2", 151, 151);
 		std::cout << testForm2 << std::endl;
 	}
-	catch (std::runtime_error& e)
+	catch (std::exception& e)
 	{
 		std::cout << e.what() << std::endl;
 	}
@@ -30,12 +30,12 @@ int main()
 		Form	testForm3("test3", 50, 20);
 		std::cout << testForm3 << std::endl;
 	}
-	catch (std::runtime_error& e)
+	catch (std::exception& e)
 	{
 		std::cout << e.what() << std::endl;
 	}
 
-	std::cout << "\n\n---------------sign exception case---------------" << std::endl;
+	std::cout << "\n\n---------------sign success exception case---------------" << std::endl;
 	try
 	{
 		Bureaucrat	user1("user1", 30);
@@ -49,6 +49,7 @@ int main()
 		std::cout << e.what() << std::endl;
 	}
 
+	std::cout << "\n\n---------------sign failed exception case---------------" << std::endl;
 	try
 	{
 		Bureaucrat	user2("user2", 70);

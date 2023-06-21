@@ -51,13 +51,14 @@ void	Form::beSigned(const Bureaucrat& user)
 		_signStatus = 1;
 }
 
-std::runtime_error	Form::GradeTooHighException() const
+const char *Form::GradeTooHighException::what() const throw()
 {
-	return (std::runtime_error("grade is too high"));
+	return ("grade is too high");
 }
-std::runtime_error	Form::GradeTooLowException() const
+
+const char *Form::GradeTooLowException::what() const throw()
 {
-	return (std::runtime_error("grade is too low"));
+	return ("grade is too low");
 }
 
 std::ostream&	operator<<(std::ostream& os, const Form& obj)

@@ -25,8 +25,17 @@ class Form
 
 		void				beSigned(const Bureaucrat& user);
 
-		std::runtime_error	GradeTooHighException() const;
-		std::runtime_error	GradeTooLowException() const;
+		class GradeTooHighException : public std::exception
+		{
+			public:
+				const char *what() const throw();
+		};
+
+		class GradeTooLowException : public std::exception
+		{
+			public:
+				const char *what() const throw();
+		};
 };
 
 std::ostream&	operator<<(std::ostream& os, const Form& obj);
