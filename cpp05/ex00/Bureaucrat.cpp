@@ -51,14 +51,14 @@ void	Bureaucrat::decreaseGrade()
 		_grade += 1;
 }
 
-std::runtime_error	Bureaucrat::GradeTooHighException()
+const char *Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return (std::runtime_error("grade is too high"));
+	return ("grade is too high");
 }
 
-std::runtime_error	Bureaucrat::GradeTooLowException()
+const char *Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return (std::runtime_error("grade is too low"));
+	return ("grade is too Low");
 }
 
 std::ostream&	operator<<(std::ostream& os, const Bureaucrat& obj)

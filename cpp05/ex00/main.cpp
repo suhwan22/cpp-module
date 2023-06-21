@@ -10,13 +10,13 @@ int main()
 	try
 	{
 		std::cout << jerk << std::endl;
-		for (; i < 10; i++)
+		for (; i < 15; i++)
 		{
 			jerk.increaseGrade();
 			std::cout << jerk << std::endl;
 		}
 	}
-	catch (std::runtime_error& e)
+	catch (std::exception& e)
 	{
 		std::cout << e.what() << std::endl;
 	}
@@ -28,13 +28,13 @@ int main()
 	try
 	{
 		std::cout << idiot << std::endl;
-		for (; i < 10; i++)
+		for (; i < 15; i++)
 		{
 			idiot.decreaseGrade();
 			std::cout << idiot << std::endl;
 		}
 	}
-	catch (std::runtime_error& e)
+	catch (std::exception& e)
 	{
 		std::cout << e.what() << std::endl;
 	}
@@ -44,7 +44,7 @@ int main()
 	{
 		Bureaucrat	test("test", 0);
 	}
-	catch (std::runtime_error& e)
+	catch (std::exception& e)
 	{
 		std::cout << e.what() << std::endl;
 	}
@@ -53,7 +53,7 @@ int main()
 	{
 		Bureaucrat	test2("test2", 170);
 	}
-	catch (std::runtime_error& e)
+	catch (std::exception& e)
 	{
 		std::cout << e.what() << std::endl;
 	}
