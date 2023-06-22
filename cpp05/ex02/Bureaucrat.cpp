@@ -59,7 +59,7 @@ void	Bureaucrat::signForm(AForm& form)
 		form.beSigned(*this);
 		std::cout << _name << " signed " << form.getName() << std::endl;
 	}
-	catch (std::runtime_error& e)
+	catch (std::exception& e)
 	{
 		std::cout << _name << " couldn't sign " << form.getName() << " because "
 			<< e.what() << std::endl;
@@ -73,21 +73,21 @@ void	Bureaucrat::executeForm(AForm const & form)
 		form.execute(*this);
 		std::cout << _name << " executed " << form.getName() << std::endl;
 	}
-	catch (std::runtime_error& e)
+	catch (std::exception& e)
 	{
 		std::cout << _name << " couldn't execute " << form.getName() << " becaue "
 			<< e.what() << std::endl;
 	}
 }
 
-std::runtime_error	Bureaucrat::GradeTooHighException()
+const char *Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return (std::runtime_error("grade is too high"));
+	return ("grade is too high");
 }
 
-std::runtime_error	Bureaucrat::GradeTooLowException()
+const char *Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return (std::runtime_error("grade is too low"));
+	return ("grade is too low");
 }
 
 std::ostream&	operator<<(std::ostream& os, const Bureaucrat& obj)

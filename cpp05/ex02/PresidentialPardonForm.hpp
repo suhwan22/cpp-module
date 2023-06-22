@@ -15,7 +15,11 @@ class PresidentialPardonForm : public AForm
 		~PresidentialPardonForm();
 		PresidentialPardonForm&	operator=(const PresidentialPardonForm& obj);
 
+		const std::string& getTarget() const;
+
 		void	execute(Bureaucrat const & executor) const;
 };
+
+std::ostream&	operator<<(std::ostream &os, const PresidentialPardonForm& obj);
 
 #endif

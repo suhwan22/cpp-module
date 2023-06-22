@@ -23,6 +23,11 @@ ShrubberyCreationForm&	ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	return (*this);
 }
 
+const std::string& ShrubberyCreationForm::getTarget() const
+{
+	return (_target);
+}
+
 void	ShrubberyCreationForm::execute(const Bureaucrat & executor) const
 {
 	if (!getStatus())
@@ -48,5 +53,16 @@ void	ShrubberyCreationForm::execute(const Bureaucrat & executor) const
  		outfile << "             :###" << std::endl;
  		outfile << "             ;###" << std::endl;
  		outfile << "           ,####." << std::endl;
+		outfile.close();
 	}
+}
+
+std::ostream&	operator<<(std::ostream& os, const ShrubberyCreationForm& obj)
+{
+	os << "The form(" << obj.getName() << ") : signStatus(" 
+		<< obj.getStatus() << "), signGrade(" 
+		<< obj.getSignGrade() << "), executeGrade(" 
+		<< obj.getExecuteGrade() << "), target("
+		<< obj.getTarget() <<")";
+	return (os);
 }

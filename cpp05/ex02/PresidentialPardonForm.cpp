@@ -23,6 +23,11 @@ PresidentialPardonForm&	PresidentialPardonForm::operator=(const PresidentialPard
 	return (*this);
 }
 
+const std::string& PresidentialPardonForm::getTarget() const
+{
+	return (_target);
+}
+
 void	PresidentialPardonForm::execute(const Bureaucrat & executor) const
 {
 	if (!getStatus())
@@ -31,4 +36,14 @@ void	PresidentialPardonForm::execute(const Bureaucrat & executor) const
 		throw AForm::GradeTooLowException();
 	else
 		std::cout << _target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+}
+
+std::ostream&	operator<<(std::ostream& os, const PresidentialPardonForm& obj)
+{
+	os << "The form(" << obj.getName() << ") : signStatus(" 
+		<< obj.getStatus() << "), signGrade(" 
+		<< obj.getSignGrade() << "), executeGrade(" 
+		<< obj.getExecuteGrade() << "), target("
+		<< obj.getTarget() <<")";
+	return (os);
 }

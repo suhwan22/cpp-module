@@ -62,7 +62,7 @@ int main()
 	try
 	{
 		Bureaucrat	user2("user2", 70);
-		RobotomyRequestForm	form2("home");
+		RobotomyRequestForm	form2("cook");
 
 		user2.signForm(form2);
 		user2.executeForm(form2);
@@ -75,7 +75,7 @@ int main()
 	try
 	{
 		Bureaucrat	user3("user3", 10);
-		RobotomyRequestForm	form3("home");
+		RobotomyRequestForm	form3("cook");
 		user3.signForm(form3);
 		user3.executeForm(form3);
 	}
@@ -101,7 +101,7 @@ int main()
 	try
 	{
 		Bureaucrat	user2("user2", 20);
-		PresidentialPardonForm	form2("home");
+		PresidentialPardonForm	form2("criminal");
 
 		user2.signForm(form2);
 		user2.executeForm(form2);
@@ -114,7 +114,7 @@ int main()
 	try
 	{
 		Bureaucrat	user3("user3", 2);
-		PresidentialPardonForm	form3("home");
+		PresidentialPardonForm	form3("criminal");
 		user3.signForm(form3);
 		user3.executeForm(form3);
 	}

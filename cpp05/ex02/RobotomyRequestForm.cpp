@@ -23,6 +23,11 @@ RobotomyRequestForm&	RobotomyRequestForm::operator=(const RobotomyRequestForm& o
 	return (*this);
 }
 
+const std::string& RobotomyRequestForm::getTarget() const
+{
+	return (_target);
+}
+
 void	RobotomyRequestForm::execute(const Bureaucrat & executor) const
 {
 	if (!getStatus())
@@ -34,8 +39,18 @@ void	RobotomyRequestForm::execute(const Bureaucrat & executor) const
 		std::cout << "Driiiilllliiinnngg!..." << std::endl;
 		srand(time(NULL));
 		if (rand() % 2)
-			std::cout << "RobotomyRequestForm(" << _target << ")'s robotomized completely." << std::endl;
+			std::cout << "RobotomyRequestForm(" << _target << ") has been robotomized completely." << std::endl;
 		else
 			std::cout << "RobotomyRequestForm(" << _target << ") failed to robotomize." << std::endl;
 	}
+}
+
+std::ostream&	operator<<(std::ostream& os, const RobotomyRequestForm& obj)
+{
+	os << "The form(" << obj.getName() << ") : signStatus(" 
+		<< obj.getStatus() << "), signGrade(" 
+		<< obj.getSignGrade() << "), executeGrade(" 
+		<< obj.getExecuteGrade() << "), target("
+		<< obj.getTarget() <<")";
+	return (os);
 }
