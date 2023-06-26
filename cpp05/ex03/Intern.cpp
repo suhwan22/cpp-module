@@ -28,7 +28,7 @@ Intern& Intern::operator=(const Intern& obj)
 	}
 }
 
-AForm *makeForm(std::string formType, std::string target)
+AForm *Intern::makeForm(std::string formType, std::string target)
 {
 	std::string	formTypes[3] = {"robotomy request",
 								"presidential pardon",

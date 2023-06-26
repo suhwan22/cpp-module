@@ -10,129 +10,43 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
-#include "PresidentialPardonForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "ShrubberyCreationForm.hpp"
+#include "Intern.hpp"
+#include <string>
 
 int main()
 {
-	std::cout << "---------------ShrubberyCreationForm exception case---------------" << std::endl;
+	std::cout << "---------------Intern make form successfully case---------------" << std::endl;
+	{
+		Intern	tester;
+		AForm	*form1;
+		AForm	*form2;
+		AForm	*form3;
 
-	try
-	{
-		Bureaucrat	user1("user1", 150);
-		ShrubberyCreationForm	form1("home");
-		
-		user1.signForm(form1);
-		user1.executeForm(form1);
-	}
-	catch (std::exception& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	std::cout << std::endl;
-	try
-	{
-		Bureaucrat	user2("user2", 140);
-		ShrubberyCreationForm	form2("home");
+		form1 = tester.makeForm("shrubbery creation", "home");
+		form2 = tester.makeForm("robotomy request", "root");
+		form3 = tester.makeForm("presidential pardon", "master");
 
-		user2.signForm(form2);
-		user2.executeForm(form2);
-	}
-	catch (std::exception& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	std::cout << std::endl;
-	try
-	{
-		Bureaucrat	user3("user3", 10);
-		ShrubberyCreationForm	form3("home");
-		user3.signForm(form3);
-		user3.executeForm(form3);
-	}
-	catch (std::exception& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
+		std::cout << *form1 << std::endl;
+		std::cout << *form2 << std::endl;
+		std::cout << *form3 << std::endl;
 
-	std::cout << "\n\n---------------RobotomyRequestForm exception case---------------" << std::endl;
-	try
-	{
-		Bureaucrat	user1("user1", 150);
-		RobotomyRequestForm	form1("cook");
-		
-		user1.signForm(form1);
-		user1.executeForm(form1);
+		delete form1;
+		delete form2;
+		delete form3;
 	}
-	catch (std::exception& e)
+	
+	std::cout << "---------------Intern fail to make form case---------------" << std::endl;
 	{
-		std::cout << e.what() << std::endl;
-	}
-	std::cout << std::endl;
-	try
-	{
-		Bureaucrat	user2("user2", 70);
-		RobotomyRequestForm	form2("cook");
+		Intern	idiot;
 
-		user2.signForm(form2);
-		user2.executeForm(form2);
-	}
-	catch (std::exception& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	std::cout << std::endl;
-	try
-	{
-		Bureaucrat	user3("user3", 10);
-		RobotomyRequestForm	form3("cook");
-		user3.signForm(form3);
-		user3.executeForm(form3);
-	}
-	catch (std::exception& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
+		AForm	*form4;
 
-	std::cout << "\n\n---------------PresidentialPardonForm exception case---------------" << std::endl;
-	try
-	{
-		Bureaucrat	user1("user1", 150);
-		PresidentialPardonForm	form1("criminal");
-		
-		user1.signForm(form1);
-		user1.executeForm(form1);
-	}
-	catch (std::exception& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	std::cout << std::endl;
-	try
-	{
-		Bureaucrat	user2("user2", 20);
-		PresidentialPardonForm	form2("criminal");
+		form4 = idiot.makeForm("naega mowrago haettjji??", "oilnam");
 
-		user2.signForm(form2);
-		user2.executeForm(form2);
-	}
-	catch (std::exception& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	std::cout << std::endl;
-	try
-	{
-		Bureaucrat	user3("user3", 2);
-		PresidentialPardonForm	form3("criminal");
-		user3.signForm(form3);
-		user3.executeForm(form3);
-	}
-	catch (std::exception& e)
-	{
-		std::cout << e.what() << std::endl;
+		if (!form4)
+			std::cout << "form4 is NULL" << std::endl;
+		else	
+			std::cout << *form4 << std::endl;
 	}
 	return (0);
 }
