@@ -6,7 +6,7 @@
 /*   By: suhkim <suhkim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 18:18:16 by suhkim            #+#    #+#             */
-/*   Updated: 2023/06/28 18:18:19 by suhkim           ###   ########.fr       */
+/*   Updated: 2023/06/28 20:24:53 by suhkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,35 +20,17 @@ bool	isChar(std::string input)
 		return (false);
 }
 
-bool	isDouble(std::string input)
-{
-	int	i;
-	int	len;
-	int	point;
-
-	point = 0;
-	len = input.length();
-	if (input == "+inf" || input == "-inf" || input == "inf" || input == "nan")
-		return (true);
-	for (i = 0; i < len; i++)
-	{
-		if (i == len - 1 && !std::isdigit(input.at(i)))
-			return (false);
-		if (!(std::isdigit(input.at(i)) || (input.at(i) == '.' && point == 0)))
-			return (false);
-		if (input.at(i) == '.')
-			point = 1;
-	}
-	return (true);
-}
-
 bool	isInt(std::string input)
 {
 	int	i;
 	int	len;
 
 	len = input.length();
-	for (i = 0; i < len; i++)
+	if (input.at(0) == '-' || input.at(0) == '+')
+		i = 1;
+	else
+		i = 0;
+	for (; i < len; i++)
 	{
 		if (!std::isdigit(input.at(i)))
 			return (false);
@@ -62,11 +44,17 @@ bool	isFloat(std::string input)
 	int	len;
 	int	point;
 
-	point = 0;
-	len = input.length();
 	if (input == "+inff" || input == "-inff" || input == "inff" || input == "nanf")
 		return (true);
-	for (i = 0; i < len - 1; i++)
+	point = 0;
+	if (input.at(0) == '-' || input.at(0) == '+')
+		i = 1;
+	else
+		i = 0;
+	len = input.length();
+	if (!std::isdigit(input.at(i)))
+		return (false);
+	for (; i < len - 1; i++)
 	{
 		if (i == len - 2 && !std::isdigit(input.at(i)))
 			return (false);
@@ -77,7 +65,39 @@ bool	isFloat(std::string input)
 	}
 	if (input.at(i) != 'f')
 		return (false);
-	return (true);
+	if (point)
+		return (true);
+	return (false);
+}
+
+bool	isDouble(std::string input)
+{
+	int	i;
+	int	len;
+	int	point;
+
+	if (input == "+inf" || input == "-inf" || input == "inf" || input == "nan")
+		return (true);
+	point = 0;
+	if (input.at(0) == '-' || input.at(0) == '+')
+		i = 1;
+	else
+		i = 0;
+	len = input.length();
+	if (!std::isdigit(input.at(i)))
+		return (false);
+	for (; i < len; i++)
+	{
+		if (!std::isdigit(input.at(len - 1)))
+			return (false);
+		if (!(std::isdigit(input.at(i)) || (input.at(i) == '.' && point == 0)))
+			return (false);
+		if (input.at(i) == '.')
+			point = 1;
+	}
+	if (point)
+		return (true);
+	return (false);
 }
 
 Type	detectType(std::string input)
