@@ -15,7 +15,9 @@ NAME = convert
 CXX = c++
 CXXFLAGS = -Werror -Wall -Wextra -std=c++98
 
-SRC = 
+SRC = ScalarConverter.cpp \
+	  process.cpp \
+	  isfunction.cpp \
 	  main.cpp
 
 OBJ = $(SRC:.cpp=.o)
