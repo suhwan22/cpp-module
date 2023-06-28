@@ -6,7 +6,7 @@
 /*   By: suhkim <suhkim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 21:43:25 by suhkim            #+#    #+#             */
-/*   Updated: 2023/06/28 18:18:19 by suhkim           ###   ########.fr       */
+/*   Updated: 2023/06/28 23:52:03 by suhkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,11 @@ void	ScalarConverter::convert(std::string value)
 {
 	Type	_type;
 
+	if (value.length() == 0)
+	{
+		doProcess(Invalid, value);
+		return ;
+	}
 	_type = detectType(value);
 	doProcess(_type, value);
 }
