@@ -6,7 +6,7 @@
 /*   By: suhkim <suhkim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 23:36:54 by suhkim            #+#    #+#             */
-/*   Updated: 2023/06/29 01:32:35 by suhkim           ###   ########.fr       */
+/*   Updated: 2023/06/29 05:33:35 by suhkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,7 @@
 template <typename T>
 void	iter(T *arr, int len, void (*f)(T&))
 {
-	int	i;
-
-	i = 0;
-	for(; i < len; i++)
+	for(int i = 0; i < len; i++)
 		f(arr[i]);
 }
 
