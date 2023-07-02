@@ -25,10 +25,13 @@ int main()
 		vec.push_back(3);
 		vec.push_back(4);
 		vec.push_back(5);
+		std::cout << "vector<int> vec {1, 2, 3, 4, 5} created" << std::endl;
 
+		std::cout << "execute easyfind(vec, 4)" << std::endl;
 		std::vector<int>::iterator iter = easyfind(vec, 4);
 		std::cout << *iter << std::endl;
 
+		std::cout << "execute easyfind(vec, 7)" << std::endl;
 		iter = easyfind(vec, 7);
 		std::cout << *iter << std::endl;
 	}
@@ -46,10 +49,13 @@ int main()
 		list1.push_back(3);
 		list1.push_back(4);
 		list1.push_back(5);
+		std::cout << "list<int> list1 {1, 2, 3, 4, 5} created" << std::endl;
 
+		std::cout << "execute easyfind(vec, 4)" << std::endl;
 		std::list<int>::iterator iter = easyfind(list1, 4);
 		std::cout << *iter << std::endl;
 
+		std::cout << "execute easyfind(vec, 7)" << std::endl;
 		iter = easyfind(list1, 7);
 		std::cout << *iter << std::endl;
 	}
