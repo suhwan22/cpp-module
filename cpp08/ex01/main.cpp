@@ -6,7 +6,7 @@
 /*   By: suhkim <suhkim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 21:14:40 by suhkim            #+#    #+#             */
-/*   Updated: 2023/07/03 21:14:41 by suhkim           ###   ########.fr       */
+/*   Updated: 2023/07/04 04:20:13 by suhkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int main()
 		sp.addNumber(2147483647);
 	
 		std::cout << "valid answer to shortest is 9 - 3 = 6 : " << sp.shortestSpan() << std::endl;
-		std::cout << "valid answer to longest is 2147483647 - -2147483648 = 4294957295 : " << sp.longestSpan() << std::endl;
+		std::cout << "valid answer to longest is 2147483647 - -2147483648 = 4294967295 : " << sp.longestSpan() << std::endl;
 	}
 	catch (std::exception& e)
 	{
