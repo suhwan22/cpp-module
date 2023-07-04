@@ -6,14 +6,14 @@
 #    By: suhkim <suhkim@student.4seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 0/09/30 0:33:0 by suhkim            #+#    #+#              #
-#    Updated: 2023/07/04 12:27:25 by suhkim           ###   ########.fr        #
+#    Updated: 2023/07/04 18:37:45 by suhkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = RPN
 
 CXX = c++
-CXXFLAGS = -Werror -Wall -Wextra -std=c++98 -g3 -fsanitize=address
+CXXFLAGS = -Werror -Wall -Wextra -std=c++98
 
 SRC =  RPN.cpp \
 	   main.cpp
