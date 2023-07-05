@@ -38,6 +38,53 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& obj)
 	return (*this);
 }
 
+void	binarySearchInsert(std::list<int>& mainchain, std::list<int>::iterator left, std::list<int>::iterator right, int target)
+{
+	std::list<int>::iterator	mid = left;
+	std::list<int>::iterator	tmp;
+
+	int	i = 1;
+
+	while (1)
+	{
+		if (mid == right)
+			break;
+		i++;
+		mid++;
+	}
+	mid = left;
+	for (int j = 0; j < i / 2; j++)
+		mid++;
+	if (target == *mid)
+		mainchain.insert(mid, target);
+	else if (target < *mid)
+	{
+		if (mid == mainchain.begin())
+			mainchain.push_front(target);
+		else
+		{
+			tmp = mid;
+			if (*(--tmp) <= target)
+				mainchain.insert(mid, target);
+			else
+				binarySearchInsert(mainchain, left, mid--, target);
+		}
+	}
+	else
+	{
+		tmp = mid;
+		if ((++tmp) == mainchain.end())
+			mainchain.push_back(target);
+		else
+		{
+			if (*tmp >= target)
+				mainchain.insert(mid, target);
+			else
+				binarySearchInsert(mainchain, mid++, right, target);
+		}
+	}
+}
+
 void	PmergeMe::binaryInsertList()
 {
 	std::list<int>	MainChain;
@@ -55,6 +102,7 @@ void	PmergeMe::binaryInsertList()
 	for(std::list<int>::iterator i = PendingChain.begin(); i != PendingChain.end(); i++)
 		std::cout << *i << " ";
 
+	
 }
 
 void	PmergeMe::binaryInsertDeque()

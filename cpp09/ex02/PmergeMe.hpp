@@ -19,14 +19,17 @@
 #include <vector>
 #include <algorithm>
 
+typedef std::list<std::vector<int> > List_v;
+typedef std::deque<std::vector<int> > Deque_v;
+
 class PmergeMe
 {
 	private:
 		PmergeMe();
 
 	public:
-		std::list< std::vector<int> >	_list;
 
+		std::list< std::vector<int> >	_list;
 		std::deque< std::vector<int> >	_deque;
 		void	setList(int argc, char **argv);
 		void	setDeque(int argc, char **argv);
